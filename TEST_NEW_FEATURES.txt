@@ -1,0 +1,59 @@
+SCHOOL REPOSITORY - QUICK TEST FOR NEW FEATURES
+Updated: September 24, 2026
+
+1) START THE SYSTEM
+   php artisan serve
+   Open: http://127.0.0.1:8000
+
+2) DEMO ACCOUNTS FROM THE INCLUDED DATABASE/SEEDER
+   Adviser: adviser@school.test
+   Password: password
+
+   Student: student@school.test
+   Password: password
+
+   Admin: admin@school.test
+   Password: password
+
+3) TEST ROOM ENROLLMENT
+   - Login as Student.
+   - Open "My Rooms".
+   - Existing demo students are already assigned to the migrated rooms.
+   - To test another room enrollment, enter one of the keys in ROOM_ENROLLMENT_KEYS.txt.
+   - Example Application Development Lab key: F92-BSIT3B-004
+
+4) TEST CHAT
+   Student side:
+   - My Rooms > choose a room > Chat Adviser.
+   - Send a message.
+
+   Adviser side:
+   - Rooms & Sections > Manage Room > Student Roster > Chat.
+   - Or open Student Chat from the sidebar.
+   - Use a second browser/incognito window to test both accounts at the same time.
+   - The chat checks for new messages every 4 seconds.
+   - New chat messages also create a notification.
+
+5) TEST AI SCORES
+   Student:
+   - Open "AI Scores & Grades".
+   - Existing AI results in the included database can be viewed where available.
+   - Open a submission to see criterion scores, feedback, strengths, and improvements.
+
+   Adviser:
+   - Open an activity > Submissions > Review & Score.
+   - AI rubric recommendation and criterion breakdown are shown before final grading.
+
+   IMPORTANT: The .env included in this package does not contain an AI API key.
+   To run a NEW AI evaluation, configure your own API key locally first.
+
+6) DATABASE
+   The included database/database.sqlite is already updated with:
+   - rooms
+   - enrollment room assignments
+   - chat_conversations
+   - chat_messages
+
+   If you use a fresh database instead, run:
+   php artisan migrate
+   php artisan db:seed

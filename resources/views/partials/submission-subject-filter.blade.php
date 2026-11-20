@@ -1,0 +1,1 @@
+<div class="field"><label for="submission-subject">Subject</label><select id="submission-subject" name="subject_id"><option value="">All subjects</option>@foreach($subjects as $subject)<option value="{{ $subject->id }}" @selected(request('subject_id') == $subject->id)>{{ $subject->displayLabel() }}</option>@endforeach</select></div>

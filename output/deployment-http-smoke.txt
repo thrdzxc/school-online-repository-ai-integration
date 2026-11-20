@@ -1,0 +1,7 @@
+/up : 200
+/login : 200
+/admin/dashboard : 302
+/.env : 404
+/composer.json : 404
+/css/app.css : 200
+/js/app.js : 200

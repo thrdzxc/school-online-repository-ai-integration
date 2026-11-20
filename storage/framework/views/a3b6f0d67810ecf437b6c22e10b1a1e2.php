@@ -1,0 +1,9 @@
+<?php $__env->startSection('title','All Activities'); ?>
+<?php $__env->startSection('content'); ?>
+<div class="page-head"><div><h1>All Activities</h1><p>Administrator view of every adviser task, rubric, and submission count.</p></div></div>
+<div class="card table-wrap"><table><thead><tr><th>Activity</th><th>Subject</th><th>Adviser</th><th>Status</th><th>Submissions</th><th></th></tr></thead><tbody>
+<?php $__empty_1 = true; $__currentLoopData = $activities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $a): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?><tr><td><strong><?php echo e($a->title); ?></strong><br><span class="small muted"><?php echo e(optional($a->due_at)->format('M d, Y h:i A') ?? 'No deadline'); ?></span></td><td><?php echo e($a->subject->name); ?></td><td><?php echo e($a->adviser->name); ?></td><td><span class="badge <?php echo e($a->status==='published'?'success':'gray'); ?>"><?php echo e($a->status); ?></span></td><td><?php echo e($a->submissions_count); ?></td><td><a class="btn secondary sm" href="<?php echo e(route('admin.activities.show',$a)); ?>">Open</a></td></tr><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?><tr><td colspan="6" class="empty">No activities.</td></tr><?php endif; ?>
+</tbody></table><?php echo e($activities->links('pagination.simple')); ?></div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\School_Repository_2.0_Improved\resources\views/admin/activities.blade.php ENDPATH**/ ?>
